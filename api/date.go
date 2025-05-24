@@ -21,7 +21,20 @@ import (
 )
 
 func GetFileContent(w http.ResponseWriter, r *http.Request) {
-	client := &http.Client{}
+
+	proxyURL, err := url.Parse("http://x:x@14.188.187.234:10953")
+	if err != nil {
+		http.Error(w, "Invalid proxy URL: "+err.Error(), http.StatusInternalServerError)
+		return
+	}
+
+	transport := &http.Transport{
+		Proxy: http.ProxyURL(proxyURL),
+	}
+
+	client := &http.Client{
+		Transport: transport,
+	}
 	req, err := http.NewRequest("GET", "https://1fichier.com/?bopqkt2nz13mv3fvk3n0", nil)
 	if err != nil {
 		fmt.Fprint(w, "Error creating request: ", err)
