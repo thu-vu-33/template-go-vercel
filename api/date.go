@@ -18,6 +18,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"net/http"
+	"net/url"
 )
 
 func GetFileContent(w http.ResponseWriter, r *http.Request) {
