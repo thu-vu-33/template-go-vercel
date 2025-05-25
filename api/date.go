@@ -42,7 +42,7 @@ func GetFileContent(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	req.Header.Set("Cookie", "show_cm=no; SID=EesWwrKekPA0Koh14igcheGxfEqNSZQwrrcwVxMpotRpQt9=uWK9eX3l4o2KIaym")
+	req.Header.Set("Cookie", "show_cm=no; SID=Eeo2KIaym")
 
 	resp, err := client.Do(req)
 	if err != nil {
